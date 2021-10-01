@@ -14,6 +14,7 @@ const ControlledInputs = () => {
       const person = { id: new Date().getTime().toString(), firstName, email };
       //console.log(person);
       setPeople((people) => {
+        //using spread operator to spreat the object and adding the new object
         return [...people, person];
       });
       setFirstName("");
@@ -46,17 +47,15 @@ const ControlledInputs = () => {
           />
         </div>
         <button type="submit">add person</button>
-      
-      
       </form>
-      {people.map((person)=>{
-        const {id , firstName,email} =person;
+      {people.map((person) => {
+        const { id, firstName, email } = person;
         return (
-          <div className='item' key={id}>
+          <div className="item" key={id}>
             <h4>{firstName}</h4>
             <p>{email}</p>
           </div>
-        )
+        );
       })}
     </>
   );
